@@ -2,6 +2,9 @@ import React from "react";
 import { observer } from "mobx-react";
 import { Content, List, Spinner } from "native-base";
 
+//Components
+import VendorItem from "./VendorItem";
+
 //Stores
 import vendorStore from "../../stores/vendorStore";
 
