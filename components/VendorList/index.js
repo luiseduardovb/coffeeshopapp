@@ -8,11 +8,11 @@ import VendorItem from "./VendorItem";
 //Stores
 import vendorStore from "../../stores/vendorStore";
 
-const VendorList = () => {
+const VendorList = ({ navigation }) => {
   if (vendorStore.loading) return <Spinner />;
 
   const vendorList = vendorStore.vendors.map((vendor) => (
-    <VendorItem vendor={vendor} key={vendor.id} />
+    <VendorItem vendor={vendor} key={vendor.id} navigation={navigation} />
   ));
 
   return (

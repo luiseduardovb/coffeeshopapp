@@ -16,6 +16,10 @@ class CoffeeStore {
   };
 }
 
+getCoffeeById = (coffeeId) => {
+  return this.coffees.find((coffee) => coffee.id === coffeeId);
+};
+
 decorate(CoffeeStore, {
   coffees: observable,
   loading: observable,

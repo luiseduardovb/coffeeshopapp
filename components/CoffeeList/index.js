@@ -6,12 +6,13 @@ import { Content, List, Spinner } from "native-base";
 //Stores
 import coffeeStore from "../../stores/coffeeStore";
 
-const CoffeeList = () => {
+const CoffeeList = ({ navigation, route }) => {
   if (coffeeStore.loading) return <Spinner />;
+  const { vendor } = route.params;
 
-  const coffeeList = coffeeStore.coffees.map((coffee) => (
-    <CoffeeItem coffee={coffee} key={coffee.id} />
-  ));
+  const coffeeList = vendor.coffees
+    .map((coffee) => coffeeStore.getCoffeeById(coffee.id))
+    .map((coffee) => <CoffeeItem coffee={coffee} key={coffee.id} />);
 
   return (
     <Content>

@@ -3,9 +3,11 @@ import { Text } from "react-native";
 import { ListItem } from "native-base";
 import { VendorItemStyled } from "./styles";
 
-const VendorItem = ({ vendor }) => {
+const VendorItem = ({ vendor, navigation }) => {
   return (
-    <ListItem>
+    <ListItem
+      onPress={() => navigation.navigate("Coffees", { vendor: vendor })}
+    >
       <VendorItemStyled>{vendor.name}</VendorItemStyled>
     </ListItem>
   );

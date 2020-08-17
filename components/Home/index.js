@@ -10,20 +10,20 @@ import {
   TopStyling,
 } from "./styles";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   return (
     <HomeBackground
       source={{
         uri:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR6vosMxltHdR858CK3NDifIutsdGeuRyUhJg&usqp=CAU",
+          "https://thecoffeebox.club/wp-content/uploads/2020/06/Cafe-de-Honduras-con-scoop_1.jpg",
       }}
     >
       <OverLayContainer>
         <TopStyling>
-          <Title>Coffee Beans</Title>
+          <Title>Luis's Coffee</Title>
         </TopStyling>
         <BottomStyling>
-          <ButtonStyled onPress={() => alert("Take me to the list of coffees")}>
+          <ButtonStyled onPress={() => navigation.navigate("Vendors")}>
             Click here to skip
           </ButtonStyled>
         </BottomStyling>
