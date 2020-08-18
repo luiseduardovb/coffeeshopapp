@@ -1,4 +1,5 @@
 import { decorate, observable, computed } from "mobx";
+import AsyncStorage from "@react-native-community/async-storage";
 
 class CartStore {
   items = [];
@@ -14,7 +15,12 @@ class CartStore {
   //   },
   // ];
 
-  addItem = (newItem) => {
+  fetchCart = async () => {
+    const items = await AsyncStorage.getItem("myCart");
+    this.items = JSON.parse(items);
+  };
+
+  addItem = async (newItem) => {
     const foundItem = this.items.find(
       (item) => item.coffeId === newItem.coffeId
     );
@@ -22,6 +28,7 @@ class CartStore {
       foundItem.quantity += newItem.quantity;
     } else {
       this.items.push(newItem);
+      await AsyncStorage.setItem("myCart", JSON.stringify(this.items));
     }
   };
 
@@ -38,4 +45,5 @@ decorate(CartStore, {
 });
 
 const cartStore = new CartStore();
+cartStore.fetchCart();
 export default cartStore;

@@ -11,12 +11,14 @@ import {
 } from "native-base";
 import { VendorItemStyled } from "../VendorList/styles";
 import NumericInput from "react-native-numeric-input";
+import cartStore from "../../stores/cartStore";
 
 const CoffeeItem = ({ coffee, navigation }) => {
   const [quantity, setQuantity] = useState(0);
 
   const handleAdd = () => {
     const newItem = { quantity, coffeeId: coffee.id };
+    cartStore.addItem(newItem);
   };
 
   return (
