@@ -18,7 +18,7 @@ const CoffeeItem = ({ coffee, navigation }) => {
 
   const handleAdd = () => {
     const newItem = { quantity, coffeeId: coffee.id };
-    cartStore.addItem(newItem);
+    cartStore.addItemToCart(newItem);
   };
 
   return (

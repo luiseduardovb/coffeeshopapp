@@ -1,7 +1,11 @@
 import React from "react";
-import { ListItem, Body, Text } from "native-base";
+import { ListItem, Body, Text, Right } from "native-base";
 
-import { TotalPrice } from "./styles";
+//Styling
+import { TotalPrice, TrashIcon } from "./styles";
+
+//Stores
+import cartStore from "../../stores/cartStore";
 
 const CartItem = ({ item }) => {
   return (
@@ -14,6 +18,13 @@ const CartItem = ({ item }) => {
         </Text>
         <TotalPrice>{item.price * item.quantity}</TotalPrice>
       </Body>
+      <Right>
+        <TrashIcon
+          name="trash"
+          type="Ionicons"
+          onPress={() => cartStore.removeItemFromCart(item.id)}
+        />
+      </Right>
     </ListItem>
   );
 };

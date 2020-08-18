@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import { Button } from "native-base";
+import { Button, Text } from "native-base";
+import { observer } from "mobx-react";
 
 //stores
 import cartStore from "../../stores/cartStore";
@@ -18,4 +19,4 @@ const CartButton = () => {
   );
 };
 
-export default CartButton;
+export default observer(CartButton);

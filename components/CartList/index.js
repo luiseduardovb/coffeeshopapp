@@ -2,9 +2,11 @@ import React from "react";
 import cartStore from "../../stores/cartStore";
 import coffeeStore from "../../stores/coffeeStore";
 import CartItem from "./CartItem";
-import { List } from "native-base";
+import { List, Spinner } from "native-base";
+import { observer } from "mobx-react";
 
 const CartList = () => {
+  if (coffeeStore.loading) return <Spinner />;
   const cartList = cartStore.items
     .map((item) => ({
       ...coffeeStore.getCoffeeById(item.coffeeId),
@@ -15,4 +17,4 @@ const CartList = () => {
   return <List>{cartList}</List>;
 };
 
-export default CartList;
+export default observer(CartList);

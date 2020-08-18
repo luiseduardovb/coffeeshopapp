@@ -15,12 +15,18 @@ class CartStore {
   //   },
   // ];
 
+  get totalQuantity() {
+    let total = 0;
+    this.items.forEach((item) => (total += item.quantity));
+    return total;
+  }
+
   fetchCart = async () => {
     const items = await AsyncStorage.getItem("myCart");
-    this.items = JSON.parse(items);
+    this.items = items ? JSON.parse(items) : [];
   };
 
-  addItem = async (newItem) => {
+  addItemToCart = async (newItem) => {
     const foundItem = this.items.find(
       (item) => item.coffeId === newItem.coffeId
     );
@@ -32,11 +38,10 @@ class CartStore {
     }
   };
 
-  get totalQuantity() {
-    let total = 0;
-    this.items.forEach((item) => (total += item.quantity));
-    return total;
-  }
+  removeItemFromCart = async (itemId) => {
+    this.items = this.items.filter((item) => item.coffeeId !== itemId);
+    await AsyncStorage.setItem("myCart", JSON.stringify(this.items));
+  };
 }
 
 decorate(CartStore, {
