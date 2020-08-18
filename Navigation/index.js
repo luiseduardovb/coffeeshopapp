@@ -6,13 +6,14 @@ import CoffeeList from "../components/CoffeeList";
 import Home from "../components/Home";
 import VendorList from "../components/VendorList";
 import CartList from "../components/CartList";
+import CartButton from "../components/buttons/CartButton";
 
 const { Navigator, Screen } = createStackNavigator();
 
 const RootNavigator = () => {
   return (
     <Navigator
-      initialRouteName="Cart"
+      initialRouteName="Vendors"
       screenOptions={{
         headerTintColor: "white",
         headerStyle: {
@@ -27,7 +28,9 @@ const RootNavigator = () => {
       <Screen
         name="Vendors"
         component={VendorList}
-        options={{ title: "Choose a Vendor" }}
+        options={
+          ({ title: "Choose a Vendor" }, { headerRight: () => <CartButton /> })
+        }
       />
       <Screen
         name="Coffees"
@@ -36,6 +39,7 @@ const RootNavigator = () => {
           const { vendor } = route.params;
           return {
             title: vendor.name,
+            headerRight: () => <CartButton />,
           };
         }}
       />
