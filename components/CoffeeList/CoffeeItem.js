@@ -3,7 +3,7 @@ import defaultCoffee from "../../defaultCoffee.jpg";
 import { ListItem, Thumbnail } from "native-base";
 import { VendorItemStyled } from "../VendorList/styles";
 
-const CoffeeItem = ({ coffee }) => {
+const CoffeeItem = ({ coffee, navigation }) => {
   return (
     <ListItem>
       <Thumbnail

@@ -14,7 +14,14 @@ const CoffeeList = ({ navigation, route }) => {
 
   const coffeeList = vendor.coffees
     .map((coffee) => coffeeStore.getCoffeeById(coffee.id))
-    .map((coffee) => <CoffeeItem coffee={coffee} key={coffee.id} />);
+    .map((coffee) => (
+      <CoffeeItem
+        coffee={coffee}
+        key={coffee.id}
+        navigation={navigation}
+        coffeeId={coffee.id}
+      />
+    ));
 
   return (
     <Content>

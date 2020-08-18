@@ -5,13 +5,14 @@ import { createStackNavigator } from "@react-navigation/stack";
 import CoffeeList from "../components/CoffeeList";
 import Home from "../components/Home";
 import VendorList from "../components/VendorList";
+import CartList from "../components/CartList";
 
 const { Navigator, Screen } = createStackNavigator();
 
 const RootNavigator = () => {
   return (
     <Navigator
-      initialRouteName="Home"
+      initialRouteName="Cart"
       screenOptions={{
         headerTintColor: "white",
         headerStyle: {
@@ -38,6 +39,7 @@ const RootNavigator = () => {
           };
         }}
       />
+      <Screen name="Cart" component={CartList} />
     </Navigator>
   );
 };
