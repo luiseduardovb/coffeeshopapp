@@ -1,11 +1,24 @@
 import React, { useState } from "react";
 import defaultCoffee from "../../defaultCoffee.jpg";
-import { ListItem, Thumbnail, Left, Right, Body, Text } from "native-base";
+import {
+  Button,
+  ListItem,
+  Thumbnail,
+  Left,
+  Right,
+  Body,
+  Text,
+} from "native-base";
 import { VendorItemStyled } from "../VendorList/styles";
 import NumericInput from "react-native-numeric-input";
 
 const CoffeeItem = ({ coffee, navigation }) => {
   const [quantity, setQuantity] = useState(0);
+
+  const handleAdd = () => {
+    const newItem = { quantity, coffeeId: coffee.id };
+  };
+
   return (
     <ListItem thumbnail>
       <Left>
@@ -25,6 +38,9 @@ const CoffeeItem = ({ coffee, navigation }) => {
           totalWidth={60}
           initValue={1}
         />
+        <Button onPress={handleAdd}>
+          <Text>Add</Text>
+        </Button>
       </Right>
     </ListItem>
   );
