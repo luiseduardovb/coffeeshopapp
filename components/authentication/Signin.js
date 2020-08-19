@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
 
+//Stores
+import authStore from "../../stores/authStore";
+
 //Styling
 import {
   AuthButton,
@@ -18,7 +21,7 @@ const Signin = () => {
   });
 
   const handleSubmit = () => {
-    console.log("Signin", user);
+    authStore.signin(user);
   };
 
   return (

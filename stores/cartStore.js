@@ -28,7 +28,7 @@ class CartStore {
 
   addItemToCart = async (newItem) => {
     const foundItem = this.items.find(
-      (item) => item.coffeId === newItem.coffeId
+      (item) => item.coffeeId === newItem.coffeeId
     );
     if (foundItem) {
       foundItem.quantity += newItem.quantity;
