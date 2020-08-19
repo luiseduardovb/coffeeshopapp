@@ -7,13 +7,14 @@ import Home from "../components/Home";
 import VendorList from "../components/VendorList";
 import CartList from "../components/CartList";
 import CartButton from "../components/buttons/CartButton";
+import Signin from "../components/authentication/Signin";
 
 const { Navigator, Screen } = createStackNavigator();
 
 const RootNavigator = () => {
   return (
     <Navigator
-      initialRouteName="Home"
+      initialRouteName="Signin"
       screenOptions={{
         headerTintColor: "white",
         headerStyle: {
@@ -42,6 +43,11 @@ const RootNavigator = () => {
             headerRight: () => <CartButton />,
           };
         }}
+      />
+      <Screen
+        name="Signin"
+        component={Signin}
+        options={{ headerShown: false }}
       />
       <Screen name="Cart" component={CartList} />
     </Navigator>
