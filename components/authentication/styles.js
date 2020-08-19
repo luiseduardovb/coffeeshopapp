@@ -25,7 +25,7 @@ export const AuthContainer = styled.View`
 `;
 
 export const AuthOther = styled.Text`
-  color: #ffffff;
+  color: #000000;
   margin-top: 15px;
 `;
 

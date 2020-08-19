@@ -11,3 +11,17 @@ export const TotalPrice = styled.Text`
 export const TrashIcon = styled(Icon)`
   color: red;
 `;
+
+export const CheckoutButton = styled.TouchableOpacity`
+  align-self: stretch;
+  align-items: center;
+  padding: 20px;
+  background-color: orange;
+  margin-top: 30px;
+`;
+
+export const CheckoutButtonText = styled.Text`
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+`;

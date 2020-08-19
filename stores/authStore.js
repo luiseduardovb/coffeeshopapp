@@ -1,12 +1,13 @@
 import { decorate, observable } from "mobx";
 import instance from "./instance";
 import decode from "jwt-decode";
+import AsyncStorage from "@react-native-community/async-storage";
 
 class AuthStore {
   user = null;
 
-  setUser = (token) => {
-    // localStorage.setItem("myToken", token);
+  setUser = async (token) => {
+    await AsyncStorage.setItem("myToken", token);
     instance.defaults.headers.common.Authorization = `Bearer ${token}`;
     this.user = decode(token);
   };
@@ -36,17 +37,17 @@ class AuthStore {
     this.user = null;
   };
 
-  //   checkForToken = () => {
-  //     const token = localStorage.getItem("myToken");
-  //     if (token) {
-  //       const decodedToken = decode(token);
-  //       if (Date.now() < decodedToken.exp) {
-  //         this.setUser(token);
-  //       } else {
-  //         this.signout();
-  //       }
-  //     }
-  //   };
+  checkForToken = async () => {
+    const token = await AsyncStorage.getItem("myToken");
+    if (token) {
+      const decodedToken = decode(token);
+      if (Date.now() < decodedToken.exp) {
+        this.setUser(token);
+      } else {
+        this.signout();
+      }
+    }
+  };
 }
 
 decorate(AuthStore, {
@@ -54,6 +55,6 @@ decorate(AuthStore, {
 });
 
 const authStore = new AuthStore();
-// authStore.checkForToken();
+authStore.checkForToken();
 
 export default authStore;

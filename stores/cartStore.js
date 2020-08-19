@@ -21,6 +21,11 @@ class CartStore {
     return total;
   }
 
+  checkoutCart = () => {
+    this.items = [];
+    alert("Im a cute message");
+  };
+
   fetchCart = async () => {
     const items = await AsyncStorage.getItem("myCart");
     this.items = items ? JSON.parse(items) : [];
