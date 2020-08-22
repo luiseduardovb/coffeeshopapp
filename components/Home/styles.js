@@ -8,7 +8,7 @@ export const BottomStyling = styled.View`
 
 export const ButtonStyled = styled.Text`
   font-size: 20;
-  color: #fff;
+  color: #b46930;
 `;
 
 export const HomeBackground = styled.ImageBackground`
@@ -19,7 +19,7 @@ export const HomeBackground = styled.ImageBackground`
 
 export const OverLayContainer = styled.View`
   flex: 1;
-  background-color: rgba(100, 40, 60, 0.4);
+  background-color: rgba(255, 255, 255, 0.1);
 `;
 
 export const TopStyling = styled.View`
@@ -29,7 +29,7 @@ export const TopStyling = styled.View`
 `;
 
 export const Title = styled.Text`
-  color: #fff;
-  font-size: 38;
+  color: #b46930;
+  font-size: 30;
   text-align: center;
 `;

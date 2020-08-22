@@ -19,7 +19,7 @@ const RootNavigator = () => {
       screenOptions={{
         headerTintColor: "white",
         headerStyle: {
-          backgroundColor: "#90d4ed",
+          backgroundColor: "#b46930",
         },
         headerTitleStyle: {
           fontWeight: "bold",

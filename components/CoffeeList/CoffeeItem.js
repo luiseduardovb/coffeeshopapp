@@ -12,6 +12,7 @@ import {
 import { VendorItemStyled } from "../VendorList/styles";
 import NumericInput from "react-native-numeric-input";
 import cartStore from "../../stores/cartStore";
+import coffeeStore from "../../stores/coffeeStore";
 
 const CoffeeItem = ({ coffee, navigation }) => {
   const [quantity, setQuantity] = useState(0);
@@ -25,7 +26,14 @@ const CoffeeItem = ({ coffee, navigation }) => {
     <ListItem thumbnail>
       <Left>
         <Thumbnail
-          source={coffee.image ? { uri: coffee.image } : defaultCoffee}
+          source={
+            coffee.image
+              ? {
+                  uri:
+                    "https://image.freepik.com/free-vector/black-coffee-bag-foil-package-3d-pouch_83194-956.jpg",
+                }
+              : { uri: coffee.image }
+          }
         />
       </Left>
       <Body>

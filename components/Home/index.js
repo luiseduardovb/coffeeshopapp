@@ -15,7 +15,7 @@ const Home = ({ navigation }) => {
     <HomeBackground
       source={{
         uri:
-          "https://thecoffeebox.club/wp-content/uploads/2020/06/Cafe-de-Honduras-con-scoop_1.jpg",
+          "https://www.clipartmax.com/png/full/284-2843977_brooklyn-cocoa-hot-coffee-cup-png.png",
       }}
     >
       <OverLayContainer>
