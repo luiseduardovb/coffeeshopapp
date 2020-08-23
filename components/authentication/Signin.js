@@ -14,14 +14,15 @@ import {
   AuthOther,
 } from "./styles";
 
-const Signin = () => {
+const Signin = ({ navigation }) => {
   const [user, setUser] = useState({
     username: "",
     password: "",
   });
 
-  const handleSubmit = () => {
-    authStore.signin(user);
+  const handleSubmit = async () => {
+    await authStore.signin(user);
+    if (authStore.user) navigation.replace("Cart");
   };
 
   return (

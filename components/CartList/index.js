@@ -42,7 +42,7 @@ const CartList = ({ navigation }) => {
   return (
     <Content>
       {cartList}
-      <CheckoutButton onPress={cartStore.checkoutCart}>
+      <CheckoutButton onPress={handleCheckOut}>
         <CheckoutButtonText>Checkout</CheckoutButtonText>
       </CheckoutButton>
     </Content>

@@ -24,10 +24,11 @@ class CartStore {
 
   checkoutCart = async () => {
     try {
-      const res = await instance.post("/checkout", this.items);
-      this.items = [];
-      await AsyncStorage.removeItem("myCart");
-      alert("Thank you for your business");
+      console.log("Items", this.items);
+      // const res = await instance.post("/checkout", this.items);
+      // this.items = [];
+      // await AsyncStorage.removeItem("myCart");
+      // alert("Thank you for your business");
     } catch (error) {
       console.log("CartStore -> checkoutCart -> error", error);
     }
